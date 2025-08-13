@@ -1,194 +1,137 @@
-<!--
-SoloTech - Single-file HTML + CSS (ready for Cloudflare Pages)
-Author: SoloTech
--->
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SoloTech — Średnio, ale kto robi dobrze?</title>
-  <meta name="description" content="SoloTech — rozszerzenia do Microsoft Dynamics 365, programowanie w X++.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#f6fbff;
-      --primary:#0b61d6; /* microsoft-like blue */
-      --primary-600:#0955b8;
-      --accent:#0b74ff;
-      --muted:#6b7280;
-      --card:#ffffff;
-      --radius:14px;
-      --max-w:1100px;
-      --shadow: 0 6px 24px rgba(11,97,214,0.08);
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#ffffff);color:#0f1724;line-height:1.5}
-
-    .container{max-width:var(--max-w);margin:0 auto;padding:28px}
-
-    /* Header / Hero */
-    .hero{
-      display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:48px 24px;border-radius:18px;background-image:linear-gradient(rgba(11,97,214,0.08), rgba(11,97,214,0.02)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=80');background-size:cover;background-position:center;color:white;box-shadow:var(--shadow);overflow:hidden
-    }
-    .hero::after{content:'';position:absolute;left:0;right:0;top:0;bottom:0;pointer-events:none}
-    .hero-inner{position:relative;z-index:2;padding:40px;border-radius:16px;background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));backdrop-filter: blur(2px)}
-
-    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:12px;flex:0 0 56px;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;color:white;font-weight:700;font-size:18px;box-shadow:0 6px 20px rgba(11,97,214,0.18)}
-    h1{margin:0;font-size:28px;line-height:1.02}
-    p.lead{margin:8px 0 0;color:rgba(255,255,255,0.92);font-weight:500}
-
-    .cta{display:flex;gap:12px;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;font-weight:600;border:none;cursor:pointer;text-decoration:none}
-    .btn-primary{background:var(--primary);color:white;box-shadow:0 8px 20px rgba(11,97,214,0.12)}
-    .btn-ghost{background:rgba(255,255,255,0.12);color:white}
-
-    /* About + Services */
-    .grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start;margin-top:28px}
-    .card{background:var(--card);padding:22px;border-radius:var(--radius);box-shadow:var(--shadow)}
-    .muted{color:var(--muted)}
-
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
-    .service{border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#fff,#f7fbff);padding:14px;display:flex;gap:12px;align-items:center}
-    .service img{width:78px;height:58px;object-fit:cover;border-radius:8px;flex-shrink:0}
-    .service h4{margin:0;font-size:15px}
-    .service p{margin:6px 0 0;font-size:13px;color:var(--muted)}
-
-    /* Contact */
-    .contact{display:flex;flex-direction:column;gap:12px}
-    .contact a{color:var(--primary);text-decoration:none;font-weight:600}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    input,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #e6eefc;background:#fcfeff;font-size:14px}
-    textarea{min-height:110px;resize:vertical}
-
-    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
-
-    /* Responsive */
-    @media(max-width:980px){
-      .grid{grid-template-columns:1fr}
-      .services{grid-template-columns:1fr}
-      .hero{padding:28px}
-      h1{font-size:24px}
-    }
-
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SoloTech – Średnio, ale kto robi dobrze?</title>
+<style>
+  :root {
+    --bg1: #0b61d6;
+    --bg2: #4fa3f7;
+    --text-dark: #1e1e1e;
+    --text-light: #ffffff;
+    --primary: #0b61d6;
+    --card-bg: #ffffff;
+  }
+  * {margin: 0; padding: 0; box-sizing: border-box;}
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg1), var(--bg2));
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  header {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-light);
+  }
+  header h1 { font-size: 3rem; }
+  header p { font-size: 1.2rem; margin: 0.5rem 0 1rem; }
+  header a {
+    background: var(--text-light);
+    color: var(--primary);
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+  }
+  main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  section {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  h2 { margin-bottom: 1rem; }
+  .services {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .service {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+  }
+  .service img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  .contact a {
+    color: var(--primary);
+    font-weight: bold;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-light);
+    background: var(--primary);
+    margin-top: 2rem;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="hero card" style="position:relative">
-      <div style="display:flex;justify-content:space-between;align-items:center;">
-        <div class="brand">
-          <div class="logo">ST</div>
-          <div>
-            <div style="color:rgba(255,255,255,0.9);font-weight:600;font-size:13px">SoloTech</div>
-            <div style="font-size:12px;color:rgba(255,255,255,0.82)">Rozszerzenia dla Microsoft Dynamics 365</div>
-          </div>
-        </div>
-        <nav style="display:flex;gap:10px;align-items:center">
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/pawe%C5%82-so%C5%82obodowski-179912168/" target="_blank" rel="noopener">LinkedIn</a>
-        </nav>
+
+<header>
+  <h1>SoloTech</h1>
+  <p>Średnio, ale kto robi dobrze?</p>
+  <a href="mailto:pawel@solotechnology.org">Skontaktuj się</a>
+</header>
+
+<main>
+  <section>
+    <h2>O mnie</h2>
+    <p>Nazywam się Paweł — działam jako SoloTech. Zajmuję się tworzeniem rozszerzeń w X++ dla Microsoft Dynamics 365. Pomagam w analizie, projektowaniu i implementacji rozwiązań, które optymalizują procesy biznesowe i integrują systemy.</p>
+    <div class="services">
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1581091012184-5c1d4b03f2c6?auto=format&fit=crop&w=600&q=80" alt="Rozszerzenia X++">
+        <p>Rozszerzenia X++</p>
       </div>
-
-      <div class="hero-inner" style="margin-top:18px">
-        <h1>SoloTech</h1>
-        <p class="lead">Średnio, ale kto robi dobrze?</p>
-        <p style="margin-top:12px;max-width:70%;opacity:0.95">Specjalizuję się w programowaniu w <strong>X++</strong> oraz tworzeniu rozszerzeń i integracji dla <strong>Microsoft Dynamics 365</strong>. Pomagam firmom rozwiązywać trudne problemy biznesowe poprzez personalizowane rozszerzenia systemów ERP.</p>
-
-        <div class="cta">
-          <a class="btn btn-primary" href="#contact">Skontaktuj się</a>
-          <a class="btn btn-ghost" href="#services">Usługi</a>
-        </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=600&q=80" alt="Integracje">
+        <p>Integracje systemów</p>
+      </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=600&q=80" alt="Konsultacje">
+        <p>Konsultacje techniczne</p>
       </div>
     </div>
+  </section>
 
-    <div class="grid" style="margin-top:24px">
-      <div>
-        <div class="card">
-          <h3>O mnie</h3>
-          <p class="muted">Nazywam się Paweł — działam jako SoloTech. Zajmuję się tworzeniem rozszerzeń w X++ dla Microsoft Dynamics 365. Pomagam w analizie, projektowaniu i implementacji rozwiązań, które optymalizują procesy biznesowe i integrują systemy.</p>
+  <section class="contact">
+    <h2>Kontakt</h2>
+    <p>Chcesz porozmawiać o projekcie?</p>
+    <p>Email: <a href="mailto:pawel@solotechnology.org">pawel@solotechnology.org</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/pawe%C5%82-so%C5%82obodowski-179912168/">Paweł Sołobodowski</a></p>
+  </section>
 
-          <div class="services" id="services">
-            <div class="service">
-              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=60" alt="kodowanie">
-              <div>
-                <h4>Rozszerzenia X++</h4>
-                <p>Customizacja logiki biznesowej, raportów i procesów w D365.</p>
-              </div>
-            </div>
+  <section>
+    <h2>Dlaczego warto?</h2>
+    <ul>
+      <li>Doświadczenie w X++ i Dynamics 365</li>
+      <li>Skoncentrowane, praktyczne rozwiązania</li>
+      <li>Szybkie iteracje i łatwa współpraca</li>
+    </ul>
+  </section>
 
-            <div class="service">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=60" alt="integracje">
-              <div>
-                <h4>Integracje</h4>
-                <p>Łączenie D365 z zewnętrznymi systemami i API.</p>
-              </div>
-            </div>
+  <section>
+    <h2>Portfolio (przykłady)</h2>
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Portfolio" style="width:100%; border-radius:6px;">
+  </section>
+</main>
 
-            <div class="service">
-              <img src="https://images.unsplash.com/photo-1557838923-b4f0f3f4a4f0?auto=format&fit=crop&w=600&q=60" alt="konsultacje">
-              <div>
-                <h4>Konsultacje techniczne</h4>
-                <p>Przeglądy architektury, migracje i wsparcie wdrożeniowe.</p>
-              </div>
-            </div>
-          </div>
+<footer>
+  <p>© 2025 SoloTech – Wszystkie prawa zastrzeżone</p>
+</footer>
 
-        </div>
-
-        <div class="card" style="margin-top:16px">
-          <h3>Dlaczego warto?</h3>
-          <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
-            <li>Doświadczenie w X++ i Dynamics 365</li>
-            <li>Skoncentrowane, praktyczne rozwiązania</li>
-            <li>Szybkie iteracje i łatwa współpraca</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <aside>
-        <div class="card" id="contact">
-          <h3>Kontakt</h3>
-          <p class="muted">Chcesz porozmawiać o projekcie?</p>
-          <div class="contact">
-            <div><strong>Email:</strong> <a href="mailto:pawel@solotechnology.org">kontakt@solotech.example</a></div>
-            <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pawe%C5%82-so%C5%82obodowski-179912168/" target="_blank" rel="noopener">Paweł Sołobodowski</a></div>
-
-            <p style="margin-top:8px;color:var(--muted)">Wyślij krótką wiadomość — albo kliknij poniżej, aby otworzyć maila w swojej skrzynce.</p>
-
-            <a class="btn btn-primary" href="mailto:pawel@solotechnology.org">Napisz Email</a>
-
-            <hr style="margin:12px 0;border:none;border-top:1px solid #eef6ff">
-
-            <p style="font-size:14px;color:var(--muted)"><strong>Masz wymagania techniczne?</strong> Napisz: zakres, oczekiwane integracje, terminy — przygotuję wycenę.</p>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:16px;text-align:center">
-          <h4 style="margin-bottom:8px">Portfolio (przykłady)</h4>
-          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=60" alt="aplikacja" style="width:100%;border-radius:10px;margin-bottom:8px">
-          <img src="https://images.unsplash.com/photo-1526378726933-37d2f0b0c6c1?auto=format&fit=crop&w=800&q=60" alt="dashboard" style="width:100%;border-radius:10px">
-        </div>
-      </aside>
-    </div>
-
-    <footer>
-      <div>&copy; <span id="year"></span> SoloTech — Średnio, ale kto robi dobrze? • <a href="https://www.linkedin.com/in/pawe%C5%82-so%C5%82obodowski-179912168/" target="_blank" rel="noopener">LinkedIn</a></div>
-    </footer>
-  </div>
-
-  <script>
-    // dynamic year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
