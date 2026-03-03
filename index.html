@@ -95,7 +95,7 @@
 <header>
   <h1>SoloTech</h1>
   <p>Średnio, ale kto robi dobrze?</p>
-  <a href="mailto:pawel@solotechnology.org">Skontaktuj się</a>
+  <a href="#contact" id="scroll-contact">Skontaktuj się</a>
 </header>
 
 <main>
@@ -234,6 +234,13 @@
       statusDiv.textContent = "Błąd połączenia z serwerem.";
       statusDiv.style.color = "#ff6b6b";
     }
+  });
+</script>
+
+  <script>
+  document.getElementById("scroll-contact").addEventListener("click", function(e) {
+    e.preventDefault(); // blokuje domyślny jump
+    document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
   });
 </script>
 
