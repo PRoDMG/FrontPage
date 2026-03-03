@@ -182,7 +182,6 @@
 
   let turnstileToken = "";
 
-  // Callback Turnstile – zapisuje token po przejściu weryfikacji
   function onTurnstileSuccess(token) {
     turnstileToken = token;
   }
@@ -190,7 +189,7 @@
   // Render widget Turnstile
   window.addEventListener("load", () => {
     window.turnstile?.render("#turnstile-container", {
-      sitekey: "TWOJ_SITE_KEY", // <-- Podmień na swój Site Key
+      sitekey: "0x4AAAAAACluCgkc-AF9r_pW", 
       callback: onTurnstileSuccess
     });
   });
