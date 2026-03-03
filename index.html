@@ -187,7 +187,7 @@
 
   // render widget Turnstile
   window.turnstile?.render('#turnstile-container', {
-    sitekey: 'TWOJ_SITE_KEY', // <-- Twój Site Key
+    sitekey: '0x4AAAAAACluCgkc-AF9r_pW',
     callback: onTurnstileSuccess
   });
 
@@ -210,7 +210,7 @@
       name: formData.get("name"),
       email: formData.get("email"),
       message: formData.get("message"),
-      token: turnstileToken // <-- tutaj dodajemy token
+      token: turnstileToken 
     };
 
     try {
