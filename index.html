@@ -1,158 +1,221 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Solotechnology</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SoloTech – Średnio, ale kto robi dobrze?</title>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H5QJEN771S"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-H5QJEN771S');
-  </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H5QJEN771S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H5QJEN771S');
+</script>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      padding: 40px;
-      border-radius: 15px;
-      width: 100%;
-      max-width: 500px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .tagline {
-      text-align: center;
-      margin-bottom: 30px;
-      font-style: italic;
-      opacity: 0.8;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 8px;
-      font-size: 14px;
-    }
-
-    textarea {
-      resize: none;
-      height: 120px;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #00c6ff;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #00a2d4;
-    }
-
-    .status {
-      margin-top: 15px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    .success {
-      color: #00ffae;
-    }
-
-    .error {
-      color: #ff6b6b;
-    }
-  </style>
+<style>
+  :root {
+    --bg1: #0b61d6;
+    --bg2: #4fa3f7;
+    --text-dark: #1e1e1e;
+    --text-light: #ffffff;
+    --primary: #0b61d6;
+    --card-bg: #ffffff;
+  }
+  * {margin: 0; padding: 0; box-sizing: border-box;}
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg1), var(--bg2));
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  header {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-light);
+  }
+  header h1 { font-size: 3rem; }
+  header p { font-size: 1.2rem; margin: 0.5rem 0 1rem; }
+  header a {
+    background: var(--text-light);
+    color: var(--primary);
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+  }
+  main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  section {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  h2 { margin-bottom: 1rem; }
+  .services {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .service {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+  }
+  .service img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  .contact a {
+    color: var(--primary);
+    font-weight: bold;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-light);
+    background: var(--primary);
+    margin-top: 2rem;
+  }
+</style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>Solotechnology</h1>
-    <div class="tagline">Średnio, ale kto robi dobrze?</div>
+<header>
+  <h1>SoloTech</h1>
+  <p>Średnio, ale kto robi dobrze?</p>
+  <a href="mailto:pawel@solotechnology.org">Skontaktuj się</a>
+</header>
 
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="Twoje imię" required />
-      <input type="email" name="email" placeholder="Twój email" required />
-      <textarea name="message" placeholder="Twoja wiadomość" required></textarea>
-      <button type="submit">Wyślij wiadomość</button>
+<main>
+  <section>
+    <h2>O mnie</h2>
+    <p>Nazywam się Paweł — działam jako SoloTech. Zajmuję się tworzeniem rozszerzeń w X++ dla Microsoft Dynamics 365. Pomagam w analizie, projektowaniu i implementacji rozwiązań, które optymalizują procesy biznesowe i integrują systemy.</p>
+    <div class="services">
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=600&q=80">
+        <p>Rozszerzenia X++</p>
+      </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=600&q=80">
+        <p>Integracje systemów</p>
+      </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=600&q=80">
+        <p>Konsultacje techniczne</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Kontakt</h2>
+    <p>Chcesz porozmawiać o projekcie?</p>
+    <p>Email: <a href="mailto:pawel@solotechnology.org">pawel@solotechnology.org</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/pawe%C5%82-so%C5%82obodowski-179912168/">Paweł Sołobodowski</a></p>
+  </section>
+
+  <section>
+    <h2>Dlaczego warto?</h2>
+    <ul>
+      <li>Doświadczenie w X++ i Dynamics 365</li>
+      <li>Skoncentrowane, praktyczne rozwiązania</li>
+      <li>Szybkie iteracje i łatwa współpraca</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Portfolio </h2>
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:6px;">
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 SoloTech – Wszystkie prawa zastrzeżone</p>
+</footer>
+
+<!-- ===== SEKCJA KONTAKT ===== -->
+<section id="contact" style="padding:80px 20px;background:#0f3057;color:white;text-align:center;">
+  <h2 style="font-size:32px;margin-bottom:10px;">Kontakt</h2>
+  <p style="margin-bottom:40px;opacity:0.8;">
+    Masz pytanie? Napisz do nas.
+  </p>
+
+  <div style="max-width:600px;margin:0 auto;">
+    <form id="contact-form" style="display:flex;flex-direction:column;gap:15px;">
+      <input type="text" name="name" placeholder="Twoje imię" required
+        style="padding:12px;border-radius:8px;border:none;font-size:14px;">
+
+      <input type="email" name="email" placeholder="Twój email" required
+        style="padding:12px;border-radius:8px;border:none;font-size:14px;">
+
+      <textarea name="message" placeholder="Twoja wiadomość" required
+        style="padding:12px;border-radius:8px;border:none;font-size:14px;height:120px;resize:none;"></textarea>
+
+      <button type="submit"
+        style="padding:14px;background:#00c6ff;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;transition:0.3s;">
+        Wyślij wiadomość
+      </button>
     </form>
 
-    <div id="status" class="status"></div>
+    <div id="form-status" style="margin-top:20px;font-weight:bold;"></div>
   </div>
+</section>
 
-  <script>
-    const form = document.getElementById("contact-form");
-    const statusDiv = document.getElementById("status");
+<script>
+  const form = document.getElementById("contact-form");
+  const statusDiv = document.getElementById("form-status");
 
-    form.addEventListener("submit", async function(e) {
-      e.preventDefault();
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-      statusDiv.textContent = "Wysyłanie...";
-      statusDiv.className = "status";
+    statusDiv.textContent = "Wysyłanie...";
+    statusDiv.style.color = "white";
 
-      const formData = new FormData(form);
+    const formData = new FormData(form);
 
-      const data = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        message: formData.get("message")
-      };
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message")
+    };
 
-      try {
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(data)
-        });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
 
-        const result = await response.json();
+      const result = await response.json();
 
-        if (response.ok) {
-          statusDiv.textContent = "Wiadomość wysłana pomyślnie 🚀";
-          statusDiv.className = "status success";
-          form.reset();
-        } else {
-          statusDiv.textContent = result.message || "Wystąpił błąd.";
-          statusDiv.className = "status error";
-        }
-
-      } catch (error) {
-        statusDiv.textContent = "Błąd połączenia z serwerem.";
-        statusDiv.className = "status error";
+      if (response.ok) {
+        statusDiv.textContent = "Wiadomość wysłana pomyślnie 🚀";
+        statusDiv.style.color = "#00ffae";
+        form.reset();
+      } else {
+        statusDiv.textContent = result.message || "Wystąpił błąd.";
+        statusDiv.style.color = "#ff6b6b";
       }
-    });
-  </script>
+
+    } catch (error) {
+      statusDiv.textContent = "Błąd połączenia z serwerem.";
+      statusDiv.style.color = "#ff6b6b";
+    }
+  });
+</script>
 
 </body>
 </html>
