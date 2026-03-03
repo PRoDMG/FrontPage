@@ -162,6 +162,8 @@
       <textarea name="message" placeholder="Twoja wiadomość" required
         style="padding:12px;border-radius:8px;border:none;font-size:14px;height:120px;resize:none;"></textarea>
 
+    <div id="turnstile-container"></div>
+      
       <button type="submit"
         style="padding:14px;background:#00c6ff;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;transition:0.3s;">
         Wyślij wiadomość
@@ -178,26 +180,24 @@
   const form = document.getElementById("contact-form");
   const statusDiv = document.getElementById("form-status");
 
-  // Inicjalizacja Turnstile
   let turnstileToken = "";
 
+  // Callback Turnstile – zapisuje token po przejściu weryfikacji
   function onTurnstileSuccess(token) {
     turnstileToken = token;
   }
 
-  // render widget Turnstile
-  window.turnstile?.render('#turnstile-container', {
-    sitekey: '0x4AAAAAACluCgkc-AF9r_pW',
-    callback: onTurnstileSuccess
+  // Render widget Turnstile
+  window.addEventListener("load", () => {
+    window.turnstile?.render("#turnstile-container", {
+      sitekey: "TWOJ_SITE_KEY", // <-- Podmień na swój Site Key
+      callback: onTurnstileSuccess
+    });
   });
 
-  form.addEventListener("submit", async function(e) {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    statusDiv.textContent = "Wysyłanie...";
-    statusDiv.style.color = "white";
-
-    // Jeśli token nie został wygenerowany, przerwij
     if (!turnstileToken) {
       statusDiv.textContent = "Proszę przejść weryfikację Turnstile.";
       statusDiv.style.color = "#ff6b6b";
@@ -205,12 +205,11 @@
     }
 
     const formData = new FormData(form);
-
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
       message: formData.get("message"),
-      token: turnstileToken 
+      token: turnstileToken
     };
 
     try {
@@ -226,14 +225,12 @@
         statusDiv.textContent = "Wiadomość wysłana pomyślnie 🚀";
         statusDiv.style.color = "#00ffae";
         form.reset();
-        // reset Turnstile po sukcesie
-        window.turnstile?.reset();
+        window.turnstile?.reset(); // reset widgetu
         turnstileToken = "";
       } else {
         statusDiv.textContent = result.message || "Wystąpił błąd.";
         statusDiv.style.color = "#ff6b6b";
       }
-
     } catch (error) {
       statusDiv.textContent = "Błąd połączenia z serwerem.";
       statusDiv.style.color = "#ff6b6b";
