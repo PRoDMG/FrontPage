@@ -172,9 +172,24 @@
   </div>
 </section>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 <script>
   const form = document.getElementById("contact-form");
   const statusDiv = document.getElementById("form-status");
+
+  // Inicjalizacja Turnstile
+  let turnstileToken = "";
+
+  function onTurnstileSuccess(token) {
+    turnstileToken = token;
+  }
+
+  // render widget Turnstile
+  window.turnstile?.render('#turnstile-container', {
+    sitekey: 'TWOJ_SITE_KEY', // <-- Twój Site Key
+    callback: onTurnstileSuccess
+  });
 
   form.addEventListener("submit", async function(e) {
     e.preventDefault();
@@ -182,20 +197,26 @@
     statusDiv.textContent = "Wysyłanie...";
     statusDiv.style.color = "white";
 
+    // Jeśli token nie został wygenerowany, przerwij
+    if (!turnstileToken) {
+      statusDiv.textContent = "Proszę przejść weryfikację Turnstile.";
+      statusDiv.style.color = "#ff6b6b";
+      return;
+    }
+
     const formData = new FormData(form);
 
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
-      message: formData.get("message")
+      message: formData.get("message"),
+      token: turnstileToken // <-- tutaj dodajemy token
     };
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
 
@@ -205,6 +226,9 @@
         statusDiv.textContent = "Wiadomość wysłana pomyślnie 🚀";
         statusDiv.style.color = "#00ffae";
         form.reset();
+        // reset Turnstile po sukcesie
+        window.turnstile?.reset();
+        turnstileToken = "";
       } else {
         statusDiv.textContent = result.message || "Wystąpił błąd.";
         statusDiv.style.color = "#ff6b6b";
